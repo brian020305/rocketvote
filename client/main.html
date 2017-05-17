@@ -538,18 +538,29 @@
       <div class="body">
         <ul class="list list-messages">
           <li class="list-message" data-ix="list-item">
-            <a class="w-clearfix w-inline-block" data-load="1" href="/wallet/1AFawdqdfGqwerQEfaSSadqwea">
+            <a class="w-clearfix w-inline-block">
               <div class="column-right">
-                <div class="message-title">10.21231019 BTC</div>
-                <div class="message-text">&nbsp;1AFawdqdfGqwerQEfaSSadqwea</div>
+                <div class="message-title">address</div>
+                <div class="message-text">{{walletaddress}}</div>
               </div>
             </a>
           </li>
           <li class="list-message" data-ix="list-item">
-            <a class="w-clearfix w-inline-block" data-load="1" href="/wallet/1AFawdqdfGqwerQEfaSSadqwea">
+            <a class="w-clearfix w-inline-block">
               <div class="column-right">
-                <div class="message-title">10.21231019 BTC</div>
-                <div class="message-text">&nbsp;1AFawdqdfGqwerQEfaSSadqwea</div>
+                <div class="message-title">balance</div>
+                <div class="message-text">{{mywalletbalance}} BTC</div>
+              </div>
+            </a>
+          </li>
+          <li class="list-message" data-ix="list-item">
+            <a class="w-clearfix w-inline-block">
+              <div class="column-right">
+                <div class="message-title">QR Code</div>
+                <div class="message-text">
+                  <p align="center" id="qrcode" style="display: table-cell;vertical-align:middle;text-align:center;margin:0px; margin-top:30px; width:100%; height:150px">
+                  </p>
+                </div>
               </div>
             </a>
           </li>
