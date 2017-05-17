@@ -81,5 +81,22 @@ Meteor.methods({
     client.getTransactionsSync(address);
     //console.log('check balance: ' + balance);
     return balance;
+  },
+  'save' ({
+    region
+  }) {
+    console.log('region: ' + region);
+    var privateKey = CoinStack.ECKey.createKey();
+    var address = CoinStack.ECKey.deriveAddress(privateKey);
+
+    var documnet = {
+      _id: address,
+      privateKey: privateKey,
+      label: region + ' 유권자',
+      region: region,
+      createAt: new Date()
+    };
+    Wallets.insert(documnet);
+    console.log('insert wallet');
   }
 });
