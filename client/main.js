@@ -30,7 +30,7 @@ Template.wallets.helpers({
 
 Template.wallet.onCreated(function walletdetailOnCreated() {
   var address = FlowRouter.getParam('walletAdderss');
-  Meteor.subscribe('mywallet', address);
+  Meteor.subscribe('wallets', address);
   Meteor.subscribe('price');
 });
 
