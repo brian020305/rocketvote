@@ -46,7 +46,6 @@ Template.wallet.rendered = function () {
 
     Meteor.call('getBalance', param, function (err, res) {
       if (!err) {
-        console.log("getBalance:" + res);
         Session.set(address + 'balance', res);
       }
     });

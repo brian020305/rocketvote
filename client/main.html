@@ -305,8 +305,8 @@
         {{#if Template.subscriptionsReady}}
         <ul class="list list-messages">
           {{#each myWalletlist}}
-          <li class="list-message" data-ix="list-item">
-            <a class="w-clearfix w-inline-block" data-load="{{@index}}" href="/wallet/{{_id}}">
+          <li class="list-message">
+            <a class="w-clearfix w-inline-block" data-load="1" href="/wallet/{{_id}}">
               <div class="column-right">
                 <div class="message-title">{{label}}</div>
                 <div class="message-text">&nbsp;{{_id}}</div>
@@ -537,7 +537,7 @@
       </div>
       <div class="body">
         <ul class="list list-messages">
-          <li class="list-message" data-ix="list-item">
+          <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
                 <div class="message-title">Label</div>
@@ -545,7 +545,7 @@
               </div>
             </a>
           </li>
-          <li class="list-message" data-ix="list-item">
+          <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
                 <div class="message-title">Address</div>
@@ -553,7 +553,7 @@
               </div>
             </a>
           </li>
-          <li class="list-message" data-ix="list-item">
+          <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
                 <div class="message-title">Balance</div>
@@ -561,7 +561,7 @@
               </div>
             </a>
           </li>
-          <li class="list-message" data-ix="list-item">
+          <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
                 <div class="message-title">QR Code</div>
@@ -575,11 +575,13 @@
         </ul>
       </div>
     </div>
+    <!--
     <div class="loading-mask page-content" id="new-stack">
       <div class="loading-icon">
         <div class="icon ion-load-d navbar-button-icon"></div>
       </div>
     </div>
+    -->
   </section>
 </template>
 <template name="home">
