@@ -302,24 +302,20 @@
         </div>
       </div>
       <div class="body">
+        {{#if Template.subscriptionsReady}}
         <ul class="list list-messages">
+          {{#each myWalletlist}}
           <li class="list-message" data-ix="list-item">
-            <a class="w-clearfix w-inline-block" data-load="0" href="/wallet/1AFawdqdfGqwerQEfaSSadqwea">
+            <a class="w-clearfix w-inline-block" data-load="{{@index}}" href="/wallet/{{_id}}">
               <div class="column-right">
-                <div class="message-title">10.21231019 BTC</div>
-                <div class="message-text">&nbsp;1AFawdqdfGqwerQEfaSSadqwea</div>
+                <div class="message-title">{{label}}</div>
+                <div class="message-text">&nbsp;{{_id}}</div>
               </div>
             </a>
           </li>
-          <li class="list-message" data-ix="list-item">
-            <a class="w-clearfix w-inline-block" data-load="1" href="/wallet/1AFawdqdfGqwerQEfaSSadqwea">
-              <div class="column-right">
-                <div class="message-title">10.21231019 BTC</div>
-                <div class="message-text">&nbsp;1AFawdqdfGqwerQEfaSSadqwea</div>
-              </div>
-            </a>
-          </li>
+          {{/each}}
         </ul>
+        {{/if}}
       </div>
     </div>
     <div class="loading-mask page-content" id="new-stack">

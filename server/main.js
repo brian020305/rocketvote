@@ -20,7 +20,7 @@ Meteor.startup(() => {
   var data = CoinStack.ECKey.createKey();
   var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), 'secret key 123');
 
-  // Decrypt 
+  // Decrypt
   var bytes = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
   var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
   console.log(decryptedData);
@@ -37,6 +37,7 @@ Meteor.startup(() => {
     var documnet = {
       _id: address,
       privateKey: privateKey,
+      label: 'center',
       createAt: new Date()
     };
     Wallets.insert(documnet);

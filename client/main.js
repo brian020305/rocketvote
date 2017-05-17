@@ -11,15 +11,19 @@ Wallets = new Mongo.Collection('wallets');
 Price = new Mongo.Collection('price');
 client = new CoinStack('c7dbfacbdf1510889b38c01b8440b1', '10e88e9904f29c98356fd2d12b26de');
 
-Template.home.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-
-  Meteor.subscribe('wallets');
-});
 
 Template.home.onCreated(function homeOnCreated() {
   Meteor.subscribe('wallets');
+});
+
+Template.wallets.onCreated(function homeOnCreated() {
+  Meteor.subscribe('wallets');
+});
+
+Template.wallets.helpers({
+  myWalletlist() {
+    return Wallets.find();
+  }
 });
 
 Template.walletlist.helpers({
@@ -52,6 +56,7 @@ Template.walletdetail.rendered = function () {
 
     Meteor.call('getBalance', param, function (err, res) {
       if (!err) {
+        console.log("getBalance:" + res);
         Session.set(address + 'balance', res);
       }
     });

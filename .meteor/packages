@@ -23,3 +23,5 @@ http
 kadira:flow-router
 kadira:blaze-layout
 accounts-ui
+session
+mrt:qrcodesvg
