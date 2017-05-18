@@ -15,15 +15,32 @@ Template.addnew.onCreated(function addNewCreated() {
 
 Template.addnew.events({
   'click .ion-ios-checkmark-empty': function(event, instance) {
-    console.log("click event!!!")
-    var region = $('#region-field option:selected').val();
-    if (region == '') {
+    var type = $(':radio[name="type"]:checked').val();
+    if (type == '') {
+      alert('종류를 선택하세요.');
+      return;
+    }
+    var region = $('#region option:selected').val();
+    if (type == '유권자' && region == '') {
       alert('지역을 선택하세요.');
       return;
     }
+    var name = $('#name').val();
+    if (type == '후보자' && name == '') {
+      alert('후보자의 이름을 입력하세요.');
+      return;
+    }
+
+    if (type != '유권자') {
+      region = '';
+    } else if (type != '후보자') {
+      name = '';
+    }
 
     var param = {
-      region: region
+      region: region,
+      type: type,
+      name: name
     };
 
     Meteor.call('save', param, function (err, res) {
@@ -35,4 +52,19 @@ Template.addnew.events({
       }
     });
   },
+
+  'click .type-input': function(event, instance) {
+    var type = event.currentTarget.value;
+
+    if (type == '유권자') {
+      $('.region-input-row').show();
+      $('.name-input-row').hide();
+    } else if (type == '후보자') {
+      $('.region-input-row').hide();
+      $('.name-input-row').show();
+    } else {
+      $('.region-input-row').hide();
+      $('.name-input-row').hide();
+    }
+  }
 });

@@ -83,7 +83,7 @@ Meteor.methods({
     return balance;
   },
   'save' ({
-    region
+    region, type, name
   }) {
     console.log('region: ' + region);
     var privateKey = CoinStack.ECKey.createKey();
@@ -92,8 +92,10 @@ Meteor.methods({
     var documnet = {
       _id: address,
       privateKey: privateKey,
-      label: region + ' 유권자',
+      label: region + name + ' ' + type,
+      type: type,
       region: region,
+      name: name,
       createAt: new Date()
     };
     Wallets.insert(documnet);

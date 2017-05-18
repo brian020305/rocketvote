@@ -48,8 +48,31 @@
               <div class="separator-fields"></div>
               <div class="background-grey"></div>
               <div class="row-input-list">
-                <label class="label-form" for="region-field">지역</label>
-                <select class="input-form select" data-name="region" id="region-field" name="region-field" required="required">
+                <div class="input-form one-line w-clearfix">
+                  <label class="label-form middle" for="type">종류</label>
+                  <div class="radios-container w-clearfix">
+                    <div class="radio-button w-clearfix w-radio">
+                      <div class="radio-bullet-replacement"></div>
+                      <input class="radio-bullet w-radio-input type-input" data-name="type" id="node-5" name="type" type="radio" value="선거관리위원회">
+                      <label class="w-form-label" for="node-5">선관위</label>
+                    </div>
+                    <div class="radio-button w-clearfix w-radio">
+                      <div class="radio-bullet-replacement"></div>
+                      <input class="radio-bullet w-radio-input type-input" data-name="type" id="node-6" name="type" type="radio" value="후보자">
+                      <label class="w-form-label" for="node-6">후보자</label>
+                    </div>
+                    <div class="radio-button w-clearfix w-radio">
+                      <div class="checked radio-bullet-replacement"></div>
+                      <input class="radio-bullet w-radio-input type-input" data-name="type" id="node-9" name="type" type="radio" value="유권자" checked="checked">
+                      <label class="w-form-label" for="node-9">유권자</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="separator-fields"></div>
+              </div>
+              <div class="row-input-list region-input-row">
+                <label class="label-form" for="region">지역</label>
+                <select class="input-form select" data-name="region" id="region" name="region">
                   <option value="">선택하세요</option>
                   <option value="서울특별시">서울특별시</option>
                   <option value="부산광역시">부산광역시</option>
@@ -71,8 +94,14 @@
                 </select>
                 <div class="separator-fields"></div>
               </div>
+              <div class="row-input-list name-input-row hidden">
+                <label class="label-form" for="name">Name</label>
+                <input class="input-form w-input" data-name="name" id="name" maxlength="256" name="name" type="text">
+                <div class="separator-fields"></div>
+              </div>
             </form>
           </div>
+
         </div>
       </div>
     </section>
