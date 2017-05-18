@@ -21,6 +21,10 @@ Template.wallets.onCreated(function homeOnCreated() {
   Meteor.subscribe('wallets');
 });
 
+Template.login.onCreated(function homeOnCreated() {
+  Meteor.subscribe('wallets');
+});
+
 Template.candidates.onCreated(function candidatesOnCreated() {
   Meteor.subscribe('candidates');
 });
@@ -82,6 +86,20 @@ Template.wallet.rendered = function () {
       */
   }
 }
+
+Template.login.events({
+    'submit .login-form': function(e) {
+        e.preventDefault();
+        const target = e.target;
+        const key = target.email.value;
+        var row = Wallets.findOne({privateKey:key});
+        var address = row._id;
+
+        Session.set('myaddress', address);
+        Session.set('isLogin', "true");
+        FlowRouter.go('/candidates');
+    }
+});
 
 Template.wallet.helpers({
   walletaddress() {

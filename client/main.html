@@ -63,22 +63,14 @@
         <div class="bottom-section padding">
           <div class="w-form">
             <div align="center">
-              {{> loginButtons}}
             </div>
             <div style="height:100px;"></div>
-            <form action="#" data-name="Email Form" data-redirect="settings.html" id="submit-form" name="email-form">
+            <form action="#" class="login-form">
               <div>
-                <input class="input-form light w-input" data-name="email" id="email-field" maxlength="256" name="email" placeholder="Your Key" required="required" type="email">
+                <input class="input-form light w-input" data-name="email" id="email-field" maxlength="256" name="email" placeholder="Your Key" required="required">
                 <div class="separator-fields"></div>
               </div>
-              <div>
-                <div class="block-input-combined">
-                  <input class="input-form left light w-input" data-name="password" id="password-field" maxlength="256" name="password" placeholder="Password" required="required" type="password">
-                </div>
-                <div class="separator-button-input"></div>
-              </div>
               <input class="action-button w-button" data-wait="Please wait..." type="submit" value="Sign In">
-              <div class="separator-button"></div><a class="link-upper" data-load="1" href="signup.html">Don't have an account? <strong class="b-link">Sign Up</strong></a>
             </form>
           </div>
         </div>
@@ -331,7 +323,7 @@
             <a class="w-clearfix w-inline-block" data-load="1" href="/candidate/{{_id}}">
               <div class="column-right">
                 <div class="message-title">{{name}}</div>
-                <div class="message-text">&nbsp;{{_id}}</div>
+                <div class="message-text">&nbsp;{{party}}</div>
               </div>
             </a>
           </li>
