@@ -292,3 +292,81 @@
   <div class="table-responsive">
   </div>
 </template>
+<template name="candidates">
+  <section class="mobile-wrapper">
+    <div class="w-embed">
+    </div>
+    <div class="page-content" id="main-stack">
+      <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-duration="700">
+        <div class="w-container">
+
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">후보자</div>
+          <div class="navbar-button right w-nav-button" id="menu-button">
+            <div class="home-icon navbar-button-icon">
+              <div class="bar-home-icon top"></div>
+              <div class="bar-home-icon middle"></div>
+              <div class="bar-home-icon bottom"></div>
+            </div>
+          </div>
+          <a class="left navbar-button w-inline-block" href="#">
+            <div class="icon ion-ios-plus-empty navbar-button-icon"></div>
+          </a>
+        </div>
+      </div>
+      <div class="body">
+        {{#if Template.subscriptionsReady}}
+        <ul class="list list-messages">
+          {{#each candidateList}}
+          <li class="list-message">
+            <a class="w-clearfix w-inline-block" data-load="1" href="/candidate/{{_id}}">
+              <div class="column-right">
+                <div class="message-title">{{name}}</div>
+                <div class="message-text">&nbsp;{{party}}</div>
+              </div>
+            </a>
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+</template>
+<template name="candidate">
+  <section class="mobile-wrapper">
+    <div class="w-embed">
+    </div>
+    <div class="page-content" id="main-stack">
+      <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-duration="700">
+        <div class="w-container">
+          <div class="navbar-title">후보자</div>
+          <a class="left navbar-button w-inline-block" href="/candidates">
+            <div class="icon ion-ios-arrow-left bigger navbar-button-icon"></div>
+          </a>
+        </div>
+      </div>
+      <div class="body">
+        <ul class="list list-messages">
+          <li class="list-message">
+            <a class="w-clearfix w-inline-block">
+              <div class="column-right">
+                <div class="message-title">이름</div>
+                <div class="message-text">{{candidate.name}}</div>
+              </div>
+            </a>
+          </li>
+          <li class="list-message">
+            <a class="w-clearfix w-inline-block">
+              <div class="column-right">
+                <div class="message-title">소속</div>
+                <div class="message-text">{{candidate.party}}</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <input class="action-button w-button vote" value="이 후보 투표하기">
+      </div>
+    </div>
+  </section>
+</template>
