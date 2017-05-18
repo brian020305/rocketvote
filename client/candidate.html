@@ -88,7 +88,7 @@
           <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
-                <div class="message-title">Label</div>
+                <div class="message-title">이름</div>
                 <div class="message-text">{{candidate.name}}</div>
               </div>
             </a>
@@ -96,12 +96,13 @@
           <li class="list-message">
             <a class="w-clearfix w-inline-block">
               <div class="column-right">
-                <div class="message-title">Address</div>
-                <div class="message-text">{{walletaddress}}</div>
+                <div class="message-title">소속</div>
+                <div class="message-text">{{candidate.party}}</div>
               </div>
             </a>
           </li>
         </ul>
+        <input class="action-button w-button vote" value="이 후보 투표하기">
       </div>
     </div>
   </section>

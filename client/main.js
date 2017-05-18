@@ -91,6 +91,7 @@ Template.login.events({
         var address = row._id;
 
         Session.set('myaddress', address);
+        Session.set('myKey', key);
         Session.set('isLogin', "true");
         FlowRouter.go('/candidates');
     }

@@ -88,6 +88,9 @@ Meteor.methods({
         pKey,
         fromAddress
     }) {
+        console.log("Target: " + targetAddress);
+        console.log("From: " + fromAddress);
+        console.log("pKey: " + pKey);
         console.log('do vote!');
         var txBuilder = client.createTransactionBuilder();
         txBuilder.addOutput(targetAddress, CoinStack.Math.toSatoshi("0.0001"));
