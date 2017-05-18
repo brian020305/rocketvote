@@ -82,7 +82,6 @@ Meteor.methods({
     //console.log('check balance: ' + balance);
     return balance;
   },
-
     'vote' ({
         targetAddress,
         pKey,
@@ -105,7 +104,26 @@ Meteor.methods({
             console.log("failed to send tx");
         }
         return rawTx;
-    }
+    },
+  'save' ({
+    region, type, name
+  }) {
+    console.log('region: ' + region);
+    var privateKey = CoinStack.ECKey.createKey();
+    var address = CoinStack.ECKey.deriveAddress(privateKey);
+
+    var documnet = {
+      _id: address,
+      privateKey: privateKey,
+      label: region + name + ' ' + type,
+      type: type,
+      region: region,
+      name: name,
+      createAt: new Date()
+    };
+    Wallets.insert(documnet);
+    console.log('insert wallet');
+  }
 });
 
 
