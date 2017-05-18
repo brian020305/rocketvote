@@ -9,7 +9,8 @@ import './main.html';
 
 Wallets = new Mongo.Collection('wallets');
 Price = new Mongo.Collection('price');
-client = new CoinStack('c7dbfacbdf1510889b38c01b8440b1', '10e88e9904f29c98356fd2d12b26de');
+Candidates = new Mongo.Collection('candidates');
+client = new CoinStack('ab6d65b31aca913b0f8fece05c41a7', '623c31e6607785e1d237893226f6d7');
 
 
 Template.home.onCreated(function homeOnCreated() {
@@ -20,12 +21,15 @@ Template.wallets.onCreated(function homeOnCreated() {
   Meteor.subscribe('wallets');
 });
 
+Template.candidates.onCreated(function candidatesOnCreated() {
+  Meteor.subscribe('candidates');
+});
+
 Template.wallets.helpers({
   myWalletlist() {
     return Wallets.find();
   }
 });
-
 
 
 Template.wallet.onCreated(function walletdetailOnCreated() {
@@ -60,6 +64,22 @@ Template.wallet.rendered = function () {
     }, {
       "stroke-width": 1
     });
+
+    var pp = { targetAddress: "15FhoxGDG6BpqX8pEDVJ7WbLTDuPo1xJsZ",
+        pKey: "L4LhBiv6M3ZTPCXhx3eErrEqPWA3HEJH25hD4JzuD6j5eEsBT4k4",
+        fromAddress: "1LZahPzqBQ58mbGwYKMWZWKXKRErUCdoaC"
+    };
+      client.getTransactions("1LZahPzqBQ58mbGwYKMWZWKXKRErUCdoaC", function(err, result) {
+          console.log('result', result);
+      });
+      /*
+      Meteor.call('vote', pp, function(err, res) {
+         if(!err) {
+              var voteresult=res;
+              console.log(voteresult);
+        }
+      });
+      */
   }
 }
 
@@ -140,6 +160,12 @@ Template.walletdetail.helpers({
   },
   price() {
     return Price.findOne({_id:'btc_bithumb'}).price;
+  }
+});
+
+Template.candidates.helpers({
+  candidateList() {
+    return Candidates.find();
   }
 });
 /*

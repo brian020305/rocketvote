@@ -9,3 +9,7 @@ Meteor.publish("mywallet", function (_id) {
 Meteor.publish("price", function () {
   return Price.find({_id:'btc_bithumb'});
 });
+
+Meteor.publish("candidates", function() {
+    return Candidates.find({});
+});

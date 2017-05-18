@@ -9,7 +9,7 @@ import {
 } from 'meteor/http'
 var CryptoJS = require("crypto-js");
 
-client = new CoinStack('c7dbfacbdf1510889b38c01b8440b1', '10e88e9904f29c98356fd2d12b26de');
+client = new CoinStack('ab6d65b31aca913b0f8fece05c41a7', '623c31e6607785e1d237893226f6d7');
 client.endpoint = "testchain.blocko.io";
 client.protocol = 'http://';
 
@@ -81,5 +81,31 @@ Meteor.methods({
     client.getTransactionsSync(address);
     //console.log('check balance: ' + balance);
     return balance;
-  }
+  },
+
+    'vote' ({
+        targetAddress,
+        pKey,
+        fromAddress
+    }) {
+        console.log('do vote!');
+        var txBuilder = client.createTransactionBuilder();
+        txBuilder.addOutput(targetAddress, CoinStack.Math.toSatoshi("0.0001"));
+        txBuilder.setInput(fromAddress);
+        txBuilder.fee = 0;
+        var tx = client.buildTransactionSync(txBuilder);
+        tx.sign(pKey);
+        var rawTx = tx.serialize();
+        console.log(rawTx)
+        console.log(tx)
+
+        try {
+            client.sendTransactionSync(rawTx);
+        } catch(e) {
+            console.log("failed to send tx");
+        }
+        return rawTx;
+    }
 });
+
+
