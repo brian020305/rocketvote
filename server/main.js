@@ -15,6 +15,7 @@ client.protocol = 'http://';
 
 Wallets = new Mongo.Collection('wallets');
 Price = new Mongo.Collection('price');
+Candidates = new Mongo.Collection('candidates');
 
 Meteor.startup(() => {
   var data = CoinStack.ECKey.createKey();
@@ -125,5 +126,3 @@ Meteor.methods({
     console.log('insert wallet');
   }
 });
-
-
